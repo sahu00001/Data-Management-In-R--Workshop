@@ -2,6 +2,9 @@
 install.packages("tidyverse")
 install.packages("datasets")
 install.packages("ggplot2")
+available_pkgs <- available.packages()
+available_pkgs
+print(available_pkgs[, c("Package", "Description")], row.names = FALSE)
 
 ########################### Loading Library ##############################
 library(tidyverse)
@@ -126,8 +129,6 @@ rows_with_na
 columns_with_na <- colSums(is.na(df))
 columns_with_na
 ##dplyr::filter()
-# Load dplyr library
-library('dplyr')
 
 # filter() by row name
 df %>% filter(rownames(df) == 'r3')
@@ -171,6 +172,18 @@ df %>%
 df <- df %>% rename(c1 = id, fname = name, g = gender) # Rename multiple columns by index
 df
 
+# Sort the data frame by id in ascending order
+sorted_df <- arrange(df, id)
+
+# Sort the data frame by id in descending order
+sorted_df <- arrange(desc(id))
+sorted_df
+
+# Sort the data frame by age in ascending order and name in descending order
+sorted_df <- arrange(df, age, desc(name))
+
+
+
 #plotting
 # Bar plot for gender distribution
 ggplot(df, aes(x = gender)) +
@@ -190,8 +203,6 @@ df1 = data.frame(id=c(11,11,33,44,44),
               price=c(144,144,321,567,567))
 df1
 
-# Load library dplyr
-library(dplyr)
 # Distinct rows
 df2 <- df1 %>% distinct()
 df2
@@ -212,14 +223,11 @@ df3=data.frame(id=c(11,22,33,44,55),
                   "2010-09-02","2007-07-20"))
 )
 # Load dplyr library
-library(dplyr)
 # Using arrange in ascending order
 df2 <- df3 %>% arrange(price)
 df2
 
 ##dplyr::group_by()
-# Load dplyr
-library(dplyr)
 # group_by() on department
 grp_tbl <- df1 %>% group_by(pages)
 grp_tbl
@@ -242,7 +250,7 @@ logical <- c(TRUE, FALSE, TRUE)
 num <- as.numeric(logical)
 num
 
-###
+###ACTIVITY###
 #checking dimension
 dim(iris)
 
