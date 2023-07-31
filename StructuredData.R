@@ -113,7 +113,7 @@ df <- data.frame(
 
 df
 
-#Missing Values
+###########Missing Values###############################
 
 na.omit(df) #row-wise delete missing values in your dataset
 #or
@@ -129,6 +129,8 @@ rows_with_na
 columns_with_na <- colSums(is.na(df))
 columns_with_na
 ##dplyr::filter()
+# Load dplyr library
+library('dplyr')
 
 # filter() by row name
 df %>% filter(rownames(df) == 'r3')
@@ -147,7 +149,42 @@ df %>% select(c('id','name'))
 # Select multiple columns by id
 df %>% select(c(1,2))
 
+
+########slicing####################
 ##dplyr::slice() Examples
+# Create a vector
+my_vector <- c(1, 2, 3, 4, 5, 6)
+# Extract elements at index 2, 4, and 6
+sliced_vector <- my_vector[c(2, 4, 6)]
+sliced_vector
+# Create a matrix
+my_matrix <- matrix(1:9, nrow = 3)
+my_matrix
+# Extract the second row
+sliced_row <- my_matrix[2, ]
+sliced_row
+# Extract the first and third columns
+sliced_cols <- my_matrix[, c(1, 3)]
+sliced_cols
+# Extract a specific element
+specific_element <- my_matrix[2, 3]
+
+# Create a data frame
+my_df <- data.frame(
+  name = c("Alice", "Bob", "Charlie"),
+  age = c(25, 30, 22),
+  gender = c("F", "M", "M")
+)
+my_df
+
+# Extract the first two rows
+sliced_rows <- my_df[1:2, ]
+# Extract the "name" and "age" columns
+sliced_cols <- my_df[, c("name", "age")]
+# Extract a specific cell
+specific_cell <- my_df[2, "gender"]
+
+
 # Select rows 2 and 3
 df %>% slice(2,3)
 # Select rows from list
@@ -158,6 +195,41 @@ df %>% slice(2:6)
 df %>% slice(-2,-3,-4,-5,-6)
 # Drop by range
 df %>% slice(-2:-6)
+
+##########INDEXING#################################
+
+# Example 1: Indexing a Vector
+my_vector <- c(10, 20, 30, 40, 50)
+# Access a single element using index 3
+element <- my_vector[3]  # Output: 30
+# Access multiple elements using indices 1, 3, and 5
+elements <- my_vector[c(1, 3, 5)]  # Output: 10 30 50
+# Example 2: Indexing a Matrix
+my_matrix <- matrix(1:9, nrow = 3)
+# Access the element in the second row and third column
+element <- my_matrix[2, 3]  # Output: 6
+# Access the first and third rows of the matrix
+row_subset <- my_matrix[c(1, 3), ]  # Output:
+#     [,1] [,2] [,3]
+# [1,]    1    4    7
+# [2,]    3    6    9
+
+# Access the second and third columns of the matrix
+column_subset <- my_matrix[, c(2, 3)]  # Output:
+#     [,1] [,2]
+# [1,]    2    3
+# [2,]    5    6
+# [3,]    8    9
+
+# Example 3: Indexing a Data Frame
+my_df <- data.frame(a = c(1, 2, 3), b = c("A", "B", "C"))
+# Access column 'a' of the data frame
+column_a <- my_df$a  # Output: 1 2 3
+# Access column 'b' of the data frame
+column_b <- my_df[, "b"]  # Output: "A" "B" "C"
+# Access the element in the second row and first column of the data frame
+element <- my_df[2, 1]  # Output: 2
+
 
 ##dplyr::mutate() Examples
 # Replace on selected column
@@ -203,6 +275,8 @@ df1 = data.frame(id=c(11,11,33,44,44),
               price=c(144,144,321,567,567))
 df1
 
+# Load library dplyr
+library(dplyr)
 # Distinct rows
 df2 <- df1 %>% distinct()
 df2
@@ -222,7 +296,7 @@ df3=data.frame(id=c(11,22,33,44,55),
                 c("2007-06-22", "2004-02-13", "2006-05-18",
                   "2010-09-02","2007-07-20"))
 )
-# Load dplyr library
+
 # Using arrange in ascending order
 df2 <- df3 %>% arrange(price)
 df2
