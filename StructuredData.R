@@ -178,6 +178,8 @@ ggplot(df, aes(x = gender)) +
   labs(title = "Gender Distribution", x = "Gender", y = "Count")
 
 ###CHEAT SHEET(check folder)
+https://rstudio.github.io/cheatsheets/html/data-visualization.html?_gl=1*1xx8e6n*_ga*MjM1ODgzNzg5LjE2OTA2NTEyODA.*_ga_2C0WZ1JHG0*MTY5MDc4Mjc4My42LjAuMTY5MDc4Mjc4My4wLjAuMA..
+https://posit.co/resources/cheatsheets/
 
 ##dplyr::distinct()
 #########df1################################################################################
