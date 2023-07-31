@@ -40,6 +40,7 @@ Example functions: fct_reorder(), fct_lump(), fct_infreq(), fct_explicit_na(), e
 **lubridate**:
 Description: Simplifies date and time manipulation, making it easier to work with date-time data.
 Example functions: ymd(), mdy(), dmy(), ymd_hms(), week(), month(), etc.
+
 These packages offer a powerful set of tools for data management in R, and they can significantly enhance your productivity when working with data. Depending on your specific data analysis needs, you can choose the appropriate packages and functions to efficiently handle and process your data.
 
 ## Course Conclusion
