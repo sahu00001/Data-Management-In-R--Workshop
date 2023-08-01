@@ -328,6 +328,31 @@ num
 #checking dimension
 dim(iris)
 
+# map data to x and y coordinates
+ggplot(data = iris) +
+  aes(x = Petal.Length, y = Petal.Width)
+
+# add data points
+ggplot(data = iris) +
+  aes(x = Petal.Length, y = Petal.Width) +
+  geom_point()
+
+# change color & symbol type
+ggplot(data = iris) +
+  aes(x = Petal.Length, y = Petal.Width) +
+  geom_point(aes(color = Species, shape = Species))
+
+# add trend line
+ggplot(data = iris) +
+  aes(x = Petal.Length, y = Petal.Width) +
+  geom_point(aes(color = Species, shape = Species)) +
+  geom_smooth(method = lm)
+
+#boxplot
+ggplot(data = iris) +
+  aes(x = Species, y = Sepal.Length, color = Species) +
+  geom_boxplot()
+
 
 
 
